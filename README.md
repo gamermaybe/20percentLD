@@ -2,14 +2,22 @@
 
 Simple Snake game (JavaScript, HTML, CSS).
 
-To run:
+To run locally:
 
-1. Open [index.html](index.html) directly in your browser, or serve the folder using a Node-based static server:
+1. Open [index.html](index.html) directly in your browser (file://), or run a local static server.
+
+Quick with npx (no install):
 
 ```bash
-# quick: open index.html with your browser (file://)
-# or use npx to run a local static server (no install):
 npx http-server -p 8000
+# then open http://localhost:8000/
+```
+
+Or use npm scripts (recommended):
+
+```bash
+npm install        # install dev server (one-time)
+npm start          # starts a static server on port 8000
 # then open http://localhost:8000/
 ```
 
@@ -25,3 +33,25 @@ Files:
 - [index.html](index.html)
 - [style.css](style.css)
 - [script.js](script.js)
+
+Optional: publish to GitHub Pages by enabling Pages in your repo settings (serve the `main` branch or `gh-pages`).
+
+Play in terminal (Node.js)
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Run the terminal game:
+
+```bash
+npm run play:terminal
+```
+
+For CI/test use, you can run a short non-interactive session:
+
+```bash
+node cli.js --test
+```

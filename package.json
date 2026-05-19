@@ -1,0 +1,13 @@
+{
+  "name": "20percentld-snake",
+  "version": "1.0.0",
+  "description": "Simple Snake game playable in the browser",
+  "private": true,
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "scripts": {
+    "start": "http-server -p 8000",
+    "play:terminal": "node cli.js"
+  }
+}

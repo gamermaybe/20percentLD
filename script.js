@@ -36,6 +36,8 @@ function start() {
   init();
   // Start game ticks
   loopId = setInterval(tick, TICK);
+  // ensure the canvas has focus so keyboard input is received immediately
+  try { canvas.focus(); } catch (e) {}
 }
 
 // Stop the game loop
