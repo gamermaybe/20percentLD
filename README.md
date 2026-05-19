@@ -4,7 +4,7 @@ Simple Snake game (JavaScript, HTML, CSS).
 
 To run:
 
-1. Open [index.html](index.html) directly in your browser, or serve the folder using a Node-based static server (no Python required):
+1. Open [index.html](index.html) directly in your browser, or serve the folder using a Node-based static server:
 
 ```bash
 # quick: open index.html with your browser (file://)
