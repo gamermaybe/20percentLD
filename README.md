@@ -1,4 +1,4 @@
-A basic tic-tac-toe game made from the help of the youtube video: https://www.youtube.com/watch?v=B3pmT7Cpi24 
+A basic tic-tac-toe game made from the linked youtube video: https://www.youtube.com/watch?v=B3pmT7Cpi24 
 
 github repo: https://github.com/javascriptacademy-stash/tic-tac-toe.git 
 
