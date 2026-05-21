@@ -5,6 +5,9 @@ window.addEventListener('DOMContentLoaded', () => {
     const playerDisplay = document.querySelector('.display-player');
     const resetButton = document.querySelector('#reset');
     const announcer = document.querySelector('.announcer');
+    const streakXDisplay = document.querySelector('#streakX');
+    const streakODisplay = document.querySelector('#streakO');
+    const resetStreaksButton = document.querySelector('#reset-streaks');
 
     // Internal game state
     // `board` stores the current symbol at each cell ('' when empty)
@@ -17,6 +20,10 @@ window.addEventListener('DOMContentLoaded', () => {
     const PLAYERX_WON = 'PLAYERX_WON';
     const PLAYERO_WON = 'PLAYERO_WON';
     const TIE = 'TIE';
+
+    // Streak counters (consecutive wins)
+    let streakX = 0;
+    let streakO = 0;
 
 
     /*
@@ -59,14 +66,30 @@ window.addEventListener('DOMContentLoaded', () => {
 
         if (roundWon) {
             // Announce the winner and deactivate the board
-            announce(currentPlayer === 'X' ? PLAYERX_WON : PLAYERO_WON);
+            const result = currentPlayer === 'X' ? PLAYERX_WON : PLAYERO_WON;
+            // update streaks before announcing
+            if (result === PLAYERX_WON) {
+                streakX += 1;
+                streakO = 0;
+            } else {
+                streakO += 1;
+                streakX = 0;
+            }
+            updateStreakDisplays();
+            announce(result);
             isGameActive = false;
             return;
         }
 
         // If there are no empty cells left and no winner, it's a tie
-        if (!board.includes(''))
+        if (!board.includes('')) {
+            // reset streaks on tie
+            streakX = 0;
+            streakO = 0;
+            updateStreakDisplays();
             announce(TIE);
+            isGameActive = false;
+        }
     }
 
     // Display the game result (win or tie) in the announcer element
@@ -83,6 +106,12 @@ window.addEventListener('DOMContentLoaded', () => {
         }
         announcer.classList.remove('hide');
     };
+
+    // Update streak counts shown in the UI
+    function updateStreakDisplays() {
+        if (streakXDisplay) streakXDisplay.innerText = String(streakX);
+        if (streakODisplay) streakODisplay.innerText = String(streakO);
+    }
 
     // Return true if the clicked tile is empty (valid move)
     const isValidAction = (tile) => {
@@ -142,4 +171,15 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     resetButton.addEventListener('click', resetBoard);
+    // initialize streak displays
+    updateStreakDisplays();
+
+    // Reset streaks button handler
+    if (resetStreaksButton) {
+        resetStreaksButton.addEventListener('click', () => {
+            streakX = 0;
+            streakO = 0;
+            updateStreakDisplays();
+        });
+    }
 });

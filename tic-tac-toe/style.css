@@ -25,6 +25,22 @@
     margin-bottom: 1em;
 }
 
+.streaks {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    color: white;
+    margin-bottom: 0.5em;
+}
+
+.streak {
+    font-size: 18px;
+}
+
+.streak-label {
+    margin-right: 0.4rem;
+}
+
 .hide {
     display: none;
 }
@@ -77,6 +93,10 @@
 
 .restart {
     background-color: #498AFB;
+}
+
+#reset-streaks {
+    background-color: #09C372;
 }
 
 #reset {

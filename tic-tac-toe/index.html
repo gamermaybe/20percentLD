@@ -17,6 +17,10 @@
         <section class="display">
             Player <span class="display-player playerX">X</span>'s turn
         </section>
+        <section class="streaks">
+            <div class="streak"><span class="streak-label">X Streak:</span> <span id="streakX">0</span></div>
+            <div class="streak"><span class="streak-label">O Streak:</span> <span id="streakO">0</span></div>
+        </section>
         <section class="container">
             <div class="tile"></div>
             <div class="tile"></div>
@@ -31,6 +35,7 @@
         <section class="display announcer hide"></section>
         <section class="controls">
             <button id="reset">Reset</button>
+            <button id="reset-streaks" class="restart">Reset Streaks</button>
         </section>
     </main>
 </body>
